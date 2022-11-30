@@ -130,10 +130,6 @@ body {
   font-size: 36px;
 }
 
-.square input {
-  opacity: 0;
-}
-
 .square.animate {
   animation: vibration 0.4s linear;
 }
@@ -251,7 +247,7 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(calc(-50% + 20px), -50%);
+    transform: translate(calc(-50% + 20px), -45%);
     font-size: 32px;
     display: inline-block;
     margin: 0;
@@ -267,37 +263,57 @@ body {
     margin: 0 -5px 0 0;
   }
   .nav .menu-icons {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     border: none;
     background: none;
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 0px;
   }
 
   .keyboard {
-    display: none;
+    width: 52%;
+    display: grid;
+    grid-template-columns: repeat(10, 36px);
+    gap: 2px;
+    row-gap: 5px;
+    justify-content: center;
+  }
+
+  .keyboard .letters.second {
+    margin-left: 18px;
   }
 
   .letters {
-    display: none;
+    cursor: pointer;
+    background-color: #ddd;
+    border: none;
+    border-radius: 3px;
+    height: 45px;
+    width: 36px;
+    font-weight: bold;
+    font-size: 12px;
+    transition: all 0.4s ease-in;
   }
 
-  .table {
-    display: grid;
-    grid-template-columns: repeat(5, 60px);
-    gap: 5px;
-    justify-items: center;
-    align-items: center;
-    margin: 80px 0 15px 0;
+  .letters:hover {
+    background-color: #ccc;
   }
 
-  .square {
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    width: 60px;
-    height: 60px;
-    pointer-events: none;
-    text-align: center;
-    font-size: 36px;
+  .letters:focus {
+    outline: none;
+  }
+
+  .keyboard .letters.third {
+    margin-left: 18px;
+  }
+
+  #enter {
+    width: 50px;
+    grid-column: 1;
+  }
+
+  #del {
+    width: 50px;
   }
 }
