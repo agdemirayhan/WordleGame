@@ -153,7 +153,7 @@ function enterKey() {
       if (row === 7 && writtenWord !== secretWord) {
         const lose = document.createElement("div");
         lose.classList.add("win");
-        lose.innerHTML = `<span>Study</span>`;
+        lose.innerHTML = `<span>${secretWord}</span>`;
         winContainer.appendChild(lose);
       }
       writtenWord = "";
