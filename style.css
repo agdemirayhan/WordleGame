@@ -313,11 +313,11 @@ body {
   }
 
   #enter {
-    width: 50px;
+    width: 54px;
     grid-column: 1;
   }
 
   #del {
-    width: 50px;
+    width: 54px;
   }
 }
