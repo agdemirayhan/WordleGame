@@ -280,6 +280,26 @@ body {
     margin-right: -10px;
   }
 
+  .table {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    gap: 5px;
+    justify-items: center;
+    align-items: center;
+    margin: 00px 0 15px 0;
+    top: 15vh;
+    position: absolute;
+  }
+
+  .square {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    text-align: center;
+    font-size: 36px;
+  }
+
   .keyboard {
     width: 52%;
     display: grid;
@@ -298,7 +318,7 @@ body {
     background-color: #ddd;
     border: none;
     border-radius: 3px;
-    height: 45px;
+    height: 55px;
     width: 36px;
     font-weight: bold;
     font-size: 12px;
