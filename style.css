@@ -72,7 +72,9 @@ body {
   gap: 5px;
   justify-items: center;
   align-items: center;
-  margin: 80px 0 15px 0;
+  margin: 00px 0 15px 0;
+  top: 15vh;
+  position: absolute;
 }
 
 .warning-container {
@@ -186,6 +188,8 @@ body {
 }
 
 .keyboard {
+  position: absolute;
+  bottom: 2vh;
   width: 52%;
   display: grid;
   grid-template-columns: repeat(10, 40px);
@@ -264,11 +268,11 @@ body {
   }
   .nav .menu-icons {
     height: 30px;
-    width: 30px;
+    width: 40px;
     border: none;
     background: none;
     cursor: pointer;
-    margin-right: 0px;
+    margin-right: -10px;
   }
 
   .keyboard {
