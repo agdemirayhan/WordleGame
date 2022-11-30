@@ -59,6 +59,7 @@ body {
   background: none;
   cursor: pointer;
   margin-right: 5px;
+  color: #000;
 }
 
 .nav i {
@@ -127,6 +128,10 @@ body {
   pointer-events: none;
   text-align: center;
   font-size: 36px;
+}
+
+.square input {
+  opacity: 0;
 }
 
 .square.animate {
@@ -207,6 +212,7 @@ body {
   font-weight: bold;
   font-size: 12px;
   transition: all 0.4s ease-in;
+  color: #000;
 }
 
 .letters:hover {
@@ -261,57 +267,37 @@ body {
     margin: 0 -5px 0 0;
   }
   .nav .menu-icons {
-    height: 24px;
-    width: 24px;
+    height: 20px;
+    width: 20px;
     border: none;
     background: none;
     cursor: pointer;
-    margin-right: 5px;
+    margin-right: 10px;
   }
 
   .keyboard {
-    width: 52%;
-    display: grid;
-    grid-template-columns: repeat(10, 32px);
-    gap: 2px;
-    row-gap: 3px;
-    justify-content: center;
-  }
-
-  .keyboard .letters.second {
-    margin-left: 18px;
+    display: none;
   }
 
   .letters {
-    cursor: pointer;
-    background-color: #ddd;
-    border: none;
-    border-radius: 3px;
-    height: 40px;
-    width: 32px;
-    font-weight: bold;
-    font-size: 12px;
-    transition: all 0.4s ease-in;
+    display: none;
   }
 
-  .letters:hover {
-    background-color: #ccc;
+  .table {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    gap: 5px;
+    justify-items: center;
+    align-items: center;
+    margin: 80px 0 15px 0;
   }
 
-  .letters:focus {
-    outline: none;
-  }
-
-  .keyboard .letters.third {
-    margin-left: 18px;
-  }
-
-  #enter {
-    width: 50px;
-    grid-column: 1;
-  }
-
-  #del {
-    width: 50px;
+  .square {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    text-align: center;
+    font-size: 36px;
   }
 }
