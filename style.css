@@ -239,7 +239,7 @@ body {
   gap: 3px;
   row-gap: 5px;
   justify-content: center;
-  transform: translateX(-150vh);
+  transform: translateX(-150vw);
   transition: all 0.4s ease-in-out;
 }
 
@@ -281,28 +281,35 @@ body {
   width: 62px;
 }
 
-.keyboard-tr {
+.keyboard-container {
   position: absolute;
   bottom: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.keyboard-tr {
+  margin-left: 40px;
   width: 52%;
   display: grid;
   grid-template-columns: repeat(11, 40px);
   gap: 2px;
   row-gap: 5px;
   justify-content: center;
-  transform: translateX(150vh);
+  transform: translateX(150vw);
   transition: all 0.4s ease-in-out;
 }
 
 .keyboard-tr .letters.second {
-  margin-left: -15px;
+  margin-left: -20px;
   width: 40px;
   grid-row-start: 2;
   column-gap: 0px;
 }
 
 .keyboard-tr .letters.third {
-  margin-left: 5px;
+  margin-left: 0px;
 }
 
 .keyboard-tr .letters {
@@ -319,7 +326,7 @@ body {
 }
 
 .keyboard-tr #enter {
-  margin-left: -15px;
+  margin-left: -20px;
   width: 60px;
   grid-column: 1;
 }
@@ -328,7 +335,7 @@ body {
   width: 62px;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 460px) {
   body {
     touch-action: pan-x pan-y;
   }
@@ -436,5 +443,47 @@ body {
 
   #del {
     width: 54px;
+  }
+
+  .keyboard-tr {
+    margin-left: 40px;
+    width: 52%;
+    display: grid;
+    grid-template-columns: repeat(11, 36px);
+    gap: 2px;
+    row-gap: 5px;
+    justify-content: center;
+    transform: translateX(150vw);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .keyboard-tr .letters {
+    cursor: pointer;
+    background-color: #ddd;
+    border: none;
+    border-radius: 3px;
+    height: 55px;
+    width: 36px;
+    font-weight: bold;
+    font-size: 12px;
+    transition: all 0.4s ease-in;
+    color: #000;
+  }
+
+  .keyboard-tr .letters.second {
+    margin-left: -20px;
+    width: 36px;
+    grid-row-start: 2;
+    column-gap: 0px;
+  }
+
+  .keyboard-tr #enter {
+    margin-left: -20px;
+    width: 56px;
+    grid-column: 1;
+  }
+
+  .keyboard-tr #del {
+    width: 55px;
   }
 }
