@@ -8,12 +8,13 @@ html {
 
 body {
   overflow: hidden;
+
 }
 
 .body {
   font-family: "Nerko One", sans-serif;
-  height: 100vh;
-  width: 100vw;
+  height: 100vh
+  width: 100%
   overflow: hidden;
   margin: 0;
   display: flex;
@@ -239,7 +240,6 @@ body {
 
 .keyboard-container {
   position: absolute;
-  margin-left: -15px;
   bottom: 2vh;
   display: flex;
   align-items: center;
