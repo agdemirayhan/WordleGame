@@ -162,12 +162,12 @@ body {
 }
 
 .square.green.show {
-  background-color: rgba(0, 128, 0, 0.582);
+  background-color: #0f990f;
   animation: flip 0.6s linear;
 }
 
 .square.yellow.show {
-  background-color: rgba(218, 165, 32, 0.61);
+  background-color: #e6bc52;
   animation: flip 0.6s linear;
 }
 
@@ -340,6 +340,7 @@ body {
   #enter {
     width: 54px;
     grid-column: 1;
+    text-align: center;
   }
 
   #del {

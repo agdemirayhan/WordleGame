@@ -125,6 +125,28 @@ function enterKey() {
               letter.style.backgroundColor = "#444";
             }, 1500);
           }
+          secretWordArr.forEach((e, idx) => {
+            if (
+              writtenWordArr.includes(e) &&
+              letter.innerText.includes(e) &&
+              letter.id !== "enter" &&
+              letter.id !== "del"
+            ) {
+              setTimeout(() => {
+                letter.style.backgroundColor = "#daa520";
+              }, 1500);
+            }
+            if (
+              writtenWord[idx] === e &&
+              letter.innerText.includes(e) &&
+              letter.id !== "enter" &&
+              letter.id !== "del"
+            ) {
+              setTimeout(() => {
+                letter.style.backgroundColor = "#008000";
+              }, 1500);
+            }
+          });
         });
       });
       if (writtenWord === secretWord) {
