@@ -5,7 +5,6 @@
 body {
   font-family: "Nerko One", sans-serif;
   height: 100vh;
-  width: 100vw;
   overflow: hidden;
   margin: 0;
   display: flex;
@@ -68,44 +67,6 @@ body {
   font-size: 24px;
 }
 
-.language-selector {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 25vh;
-  height: 200px;
-  width: 200px;
-  background-color: #ddd;
-  padding: 20px 40px 0px 40px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  transition: all 0.4s ease;
-  z-index: 5;
-}
-
-.language-selector h3 {
-  width: 100%;
-  text-align: center;
-  margin-top: 0;
-  text-transform: uppercase;
-  font-size: 20px;
-}
-
-.language-button {
-  width: 100%;
-  height: 30px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  font-weight: bold;
-}
-
-.language-button:active {
-  transform: translateY(2px);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-
 .table {
   display: grid;
   grid-template-columns: repeat(5, 50px);
@@ -115,8 +76,6 @@ body {
   margin: 00px 0 15px 0;
   top: 15vh;
   position: absolute;
-  opacity: 0;
-  transition: all 0.8s ease-in-out;
 }
 
 .warning-container {
@@ -172,7 +131,6 @@ body {
   pointer-events: none;
   text-align: center;
   font-size: 36px;
-  display: block;
 }
 
 .square.animate {
@@ -239,15 +197,9 @@ body {
   gap: 3px;
   row-gap: 5px;
   justify-content: center;
-  transform: translateX(-150vh);
-  transition: all 0.4s ease-in-out;
 }
 
 .keyboard .letters.second {
-  margin-left: 23px;
-}
-
-.keyboard .letters.third {
   margin-left: 23px;
 }
 
@@ -272,59 +224,16 @@ body {
   outline: none;
 }
 
+.keyboard .letters.third {
+  margin-left: 23px;
+}
+
 #enter {
   width: 63px;
   grid-column: 1;
 }
 
 #del {
-  width: 62px;
-}
-
-.keyboard-tr {
-  position: absolute;
-  bottom: 2vh;
-  width: 52%;
-  display: grid;
-  grid-template-columns: repeat(11, 40px);
-  gap: 2px;
-  row-gap: 5px;
-  justify-content: center;
-  transform: translateX(150vh);
-  transition: all 0.4s ease-in-out;
-}
-
-.keyboard-tr .letters.second {
-  margin-left: -15px;
-  width: 40px;
-  grid-row-start: 2;
-  column-gap: 0px;
-}
-
-.keyboard-tr .letters.third {
-  margin-left: 5px;
-}
-
-.keyboard-tr .letters {
-  cursor: pointer;
-  background-color: #ddd;
-  border: none;
-  border-radius: 3px;
-  height: 50px;
-  width: 40px;
-  font-weight: bold;
-  font-size: 12px;
-  transition: all 0.4s ease-in;
-  color: #000;
-}
-
-.keyboard-tr #enter {
-  margin-left: -15px;
-  width: 60px;
-  grid-column: 1;
-}
-
-.keyboard-tr #del {
   width: 62px;
 }
 
