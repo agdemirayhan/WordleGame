@@ -1,25 +1,72 @@
 "use strict";
 
-import { words } from "./words.js";
+import { wordsEngArr } from "./words.js";
+import { wordsTrArr } from "./wordstr.js";
 
-const wordsArr = words.toUpperCase().split(" ");
 const squares = document.querySelectorAll(".square");
+const table = document.querySelector(".table");
+const keyboardEng = document.querySelector(".keyboard");
+const keyboardTr = document.querySelector(".keyboard-tr");
+const languageSelector = document.querySelector(".language-selector");
 const warningContainer = document.querySelector(".warning-container");
 const winContainer = document.querySelector(".win-container");
 const keyboardLetters = document.querySelectorAll(".letters");
-
+const english = document.querySelector(".english");
+const turkish = document.querySelector(".turkish");
+const specialTrLetters = [219, 221, 222, 186, 220, 191];
+let secretWordNum;
+let secretWord;
+let secretWordArr;
+let wordsArr;
 let column = 0;
 let row = 1;
-const secretWordNum = Math.floor(Math.random() * 2298 + 1);
-const secretWord = wordsArr[secretWordNum];
-const secretWordArr = Array.from(secretWord);
 let writtenWordArr = [];
 let writtenWord;
 let counts = {};
+let lang;
+let greenLetters = [];
+
+english.addEventListener("click", function () {
+  table.style.opacity = "1";
+  languageSelector.style.display = "none";
+  keyboardEng.style.transform = "translateX(0px)";
+  squares.forEach((e) => {
+    e.style.display = "block";
+  });
+  secretWordNum = Math.floor(Math.random() * 2298 + 1);
+  secretWord = wordsEngArr[secretWordNum];
+  secretWordArr = Array.from(secretWord);
+  console.log(secretWord);
+  wordsArr = wordsEngArr;
+  lang = "eng";
+});
+
+turkish.addEventListener("click", function () {
+  table.style.opacity = "1";
+  languageSelector.style.display = "none";
+  keyboardTr.style.transform = "translateX(0px)";
+  squares.forEach((e) => {
+    e.style.display = "block";
+  });
+  secretWordNum = Math.floor(Math.random() * 5535 + 1);
+  secretWord = wordsTrArr[secretWordNum];
+  secretWordArr = Array.from(secretWord);
+  console.log(secretWord);
+  wordsArr = wordsTrArr;
+  lang = "tr";
+});
 
 window.addEventListener("keydown", function (a) {
-  if (a.keyCode > 64 && a.keyCode < 91 && winContainer.innerHTML === "") {
-    typeLetter(a.key);
+  if (
+    (a.keyCode > 64 && a.keyCode < 91) ||
+    (specialTrLetters.includes(a.keyCode) && winContainer.innerHTML === "")
+  ) {
+    if (a.keyCode === 222 && lang === "tr") {
+      typeLetter("İ");
+      console.log(secretWord);
+    } else {
+      typeLetter(a.key);
+    }
   }
 });
 
@@ -31,7 +78,9 @@ window.addEventListener("keydown", function (a) {
 
 window.addEventListener("keydown", function (a) {
   if (a.key === "Enter") {
+    console.log(counts);
     enterKey();
+    console.log(counts);
   }
 });
 
@@ -133,7 +182,9 @@ function enterKey() {
               letter.id !== "del"
             ) {
               setTimeout(() => {
-                letter.style.backgroundColor = "#daa520";
+                if (!greenLetters.includes(e)) {
+                  letter.style.backgroundColor = "#daa520";
+                }
               }, 1500);
             }
             if (
@@ -142,6 +193,7 @@ function enterKey() {
               letter.id !== "enter" &&
               letter.id !== "del"
             ) {
+              greenLetters.push(writtenWord[idx]);
               setTimeout(() => {
                 letter.style.backgroundColor = "#008000";
               }, 1500);
