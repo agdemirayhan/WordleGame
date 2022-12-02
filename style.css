@@ -2,6 +2,14 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+}
+
 .body {
   font-family: "Nerko One", sans-serif;
   height: 100vh;
