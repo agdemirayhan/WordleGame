@@ -148,6 +148,7 @@ multiplayer.addEventListener("click", function () {
   }
 
   start.addEventListener("click", function () {
+    document.body.scrollTop = 0;
     if (englishID.checked && selectedNumber < 2298 && selectedNumber > 0) {
       table.style.opacity = "1";
       languageSelector.style.display = "none";
