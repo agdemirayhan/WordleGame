@@ -13,6 +13,7 @@ const winContainer = document.querySelector(".win-container");
 const keyboardLetters = document.querySelectorAll(".letters");
 const english = document.querySelector(".english");
 const turkish = document.querySelector(".turkish");
+const multiplayer = document.querySelector(".multiplayer");
 const specialTrLetters = [219, 221, 222, 186, 220, 191];
 let secretWordNum;
 let secretWord;
@@ -54,6 +55,128 @@ turkish.addEventListener("click", function () {
   console.log(secretWord);
   wordsArr = wordsTrArr;
   lang = "tr";
+});
+
+const multiplayerScreen = `     <h3>Select Language</h3>      
+<div class="language-selector__option">
+<label for="english" >English</label>
+<input type="checkbox" name="check" id="english" /></div>
+<div class="language-selector__option">
+<label for="turkish" >Türkçe</label>
+<input type="checkbox" name="check" id="turkish" /></div>
+<form>
+<label for="number">Choose a number</label>
+<input
+  type="number"
+  placeholder="word number"
+  min="1"
+  max="5534"
+  id="number"
+  class="word-form"
+  required
+/>
+</form>
+<button class="language-button random">Random</button>
+<button class="language-button start">Start</button>
+`;
+
+multiplayer.addEventListener("click", function () {
+  languageSelector.innerHTML = multiplayerScreen;
+  const englishID = document.getElementById("english");
+  const turkishID = document.getElementById("turkish");
+  const input = document.getElementById("number");
+  const start = document.querySelector(".start");
+  const random = document.querySelector(".random");
+  languageSelector.style.height = "300px";
+
+  englishID.addEventListener("click", function () {
+    turkishID.checked = false;
+    number.max = "2297";
+    input.placeholder = "1-2297";
+    randomButtonResetter();
+  });
+
+  turkishID.addEventListener("click", function () {
+    englishID.checked = false;
+    number.max = "5534";
+    input.placeholder = "1-5534";
+    randomButtonResetter();
+  });
+
+  function randomButtonResetter() {
+    random.innerHTML = `Random`;
+    random.style.color = "";
+    random.style.fontSize = "";
+    random.disabled = false;
+    random.classList.remove("inactive");
+  }
+
+  let selectedNumber = 1;
+  input.addEventListener("change", function (e) {
+    selectedNumber = e.target.value;
+    if (turkishID.checked && (selectedNumber > 5534 || selectedNumber < 1)) {
+      input.classList.add("false");
+    } else {
+      input.classList.remove("false");
+    }
+
+    if (englishID.checked && (selectedNumber > 2297 || selectedNumber < 1)) {
+      input.classList.add("false");
+    } else {
+      input.classList.remove("false");
+    }
+  });
+
+  random.addEventListener("click", function () {
+    if (englishID.checked) {
+      selectedNumber = Math.floor(Math.random() * 2298 + 1);
+      randomButtonSelectAction();
+    }
+    if (turkishID.checked) {
+      selectedNumber = Math.floor(Math.random() * 5535 + 1);
+      randomButtonSelectAction();
+    }
+  });
+
+  function randomButtonSelectAction() {
+    random.innerHTML = `${selectedNumber}`;
+    random.style.color = "green";
+    random.style.fontSize = "1.2rem";
+    random.disabled = true;
+    random.classList.add("inactive");
+    input.placeholder = `${selectedNumber}`;
+  }
+
+  start.addEventListener("click", function () {
+    if (englishID.checked && selectedNumber < 2298 && selectedNumber > 0) {
+      table.style.opacity = "1";
+      languageSelector.style.display = "none";
+      keyboardEng.style.transform = "translateX(0px)";
+      squares.forEach((e) => {
+        e.style.display = "block";
+      });
+      secretWordNum = selectedNumber;
+      secretWord = wordsEngArr[secretWordNum];
+      secretWordArr = Array.from(secretWord);
+      console.log(secretWord);
+      wordsArr = wordsEngArr;
+      lang = "eng";
+    }
+    if (turkishID.checked && selectedNumber < 5535 && selectedNumber > 0) {
+      table.style.opacity = "1";
+      languageSelector.style.display = "none";
+      keyboardEng.style.transform = "translateX(0px)";
+      squares.forEach((e) => {
+        e.style.display = "block";
+      });
+      secretWordNum = selectedNumber;
+      secretWord = wordsTrArr[secretWordNum];
+      secretWordArr = Array.from(secretWord);
+      console.log(secretWord);
+      wordsArr = wordsTrArr;
+      lang = "tr";
+    }
+  });
 });
 
 window.addEventListener("keydown", function (a) {
