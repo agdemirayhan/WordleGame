@@ -80,6 +80,11 @@ const multiplayerScreen = `     <h3>Select Language</h3>
 <button class="language-button start">Start</button>
 `;
 
+document.body.addEventListener("click", function () {
+  console.log(31);
+  document.body.scrollTop = "0";
+});
+
 multiplayer.addEventListener("click", function () {
   languageSelector.innerHTML = multiplayerScreen;
   const englishID = document.getElementById("english");
