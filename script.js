@@ -174,7 +174,7 @@ multiplayer.addEventListener("click", function () {
       window.scrollTo(0, 0);
       table.style.opacity = "1";
       languageSelector.style.display = "none";
-      keyboardEng.style.transform = "translateX(0px)";
+      keyboardTr.style.transform = "translateX(0px)";
       squares.forEach((e) => {
         e.style.display = "block";
       });
