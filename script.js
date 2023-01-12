@@ -14,6 +14,7 @@ const keyboardLetters = document.querySelectorAll(".letters");
 const english = document.querySelector(".english");
 const turkish = document.querySelector(".turkish");
 const multiplayer = document.querySelector(".multiplayer");
+const body = document.querySelector(".body");
 const specialTrLetters = [219, 221, 222, 186, 220, 191];
 let secretWordNum;
 let secretWord;
@@ -79,6 +80,11 @@ const multiplayerScreen = `     <h3>Select Language</h3>
 <button class="language-button random">Random</button>
 <button class="language-button start">Start</button>
 `;
+
+document.body.addEventListener("click", function () {
+  console.log(31);
+  document.body.scrollTop = "0";
+});
 
 multiplayer.addEventListener("click", function () {
   languageSelector.innerHTML = multiplayerScreen;
@@ -150,6 +156,7 @@ multiplayer.addEventListener("click", function () {
   start.addEventListener("click", function () {
     document.body.scrollTop = 0;
     if (englishID.checked && selectedNumber < 2298 && selectedNumber > 0) {
+      window.scrollTo(0, 0);
       table.style.opacity = "1";
       languageSelector.style.display = "none";
       keyboardEng.style.transform = "translateX(0px)";
@@ -164,6 +171,7 @@ multiplayer.addEventListener("click", function () {
       lang = "eng";
     }
     if (turkishID.checked && selectedNumber < 5535 && selectedNumber > 0) {
+      window.scrollTo(0, 0);
       table.style.opacity = "1";
       languageSelector.style.display = "none";
       keyboardEng.style.transform = "translateX(0px)";
