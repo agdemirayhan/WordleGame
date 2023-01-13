@@ -81,11 +81,6 @@ const multiplayerScreen = `     <h3>Select Language</h3>
 <button class="language-button start">Start</button>
 `;
 
-document.body.addEventListener("click", function () {
-  console.log(31);
-  document.body.scrollTop = "0";
-});
-
 multiplayer.addEventListener("click", function () {
   languageSelector.innerHTML = multiplayerScreen;
   const englishID = document.getElementById("english");
@@ -97,15 +92,15 @@ multiplayer.addEventListener("click", function () {
 
   englishID.addEventListener("click", function () {
     turkishID.checked = false;
-    number.max = "2297";
-    input.placeholder = "1-2297";
+    number.max = "2298";
+    input.placeholder = "1-2298";
     randomButtonResetter();
   });
 
   turkishID.addEventListener("click", function () {
     englishID.checked = false;
-    number.max = "5534";
-    input.placeholder = "1-5534";
+    number.max = "5535";
+    input.placeholder = "1-5535";
     randomButtonResetter();
   });
 
@@ -117,21 +112,25 @@ multiplayer.addEventListener("click", function () {
     random.classList.remove("inactive");
   }
 
-  let selectedNumber = 1;
+  let selectedNumber = 0;
   input.addEventListener("change", function (e) {
-    selectedNumber = e.target.value;
-    if (turkishID.checked && (selectedNumber > 5534 || selectedNumber < 1)) {
-      input.classList.add("false");
-    } else {
-      input.classList.remove("false");
-    }
-
-    if (englishID.checked && (selectedNumber > 2297 || selectedNumber < 1)) {
-      input.classList.add("false");
-    } else {
-      input.classList.remove("false");
-    }
+    selectedNumber = e.target.value - 1;
+    inputChecker();
   });
+
+  function inputChecker() {
+    console.log(selectedNumber);
+    if (englishID.checked && (selectedNumber > 2297 || selectedNumber < 0)) {
+      input.classList.add("false");
+    } else if (
+      turkishID.checked &&
+      (selectedNumber > 5534 || selectedNumber < 0)
+    ) {
+      input.classList.add("false");
+    } else {
+      input.classList.remove("false");
+    }
+  }
 
   random.addEventListener("click", function () {
     if (englishID.checked) {
@@ -155,7 +154,8 @@ multiplayer.addEventListener("click", function () {
 
   start.addEventListener("click", function () {
     document.body.scrollTop = 0;
-    if (englishID.checked && selectedNumber < 2298 && selectedNumber > 0) {
+    inputChecker();
+    if (englishID.checked && selectedNumber < 2298 && selectedNumber > -1) {
       window.scrollTo(0, 0);
       table.style.opacity = "1";
       languageSelector.style.display = "none";
@@ -170,7 +170,7 @@ multiplayer.addEventListener("click", function () {
       wordsArr = wordsEngArr;
       lang = "eng";
     }
-    if (turkishID.checked && selectedNumber < 5535 && selectedNumber > 0) {
+    if (turkishID.checked && selectedNumber < 5535 && selectedNumber > -1) {
       window.scrollTo(0, 0);
       table.style.opacity = "1";
       languageSelector.style.display = "none";
